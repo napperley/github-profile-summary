@@ -11,3 +11,10 @@ buildNumber.properties
 .idea
 *.iml
 cache
+
+# Additional files/dirs to ignore.
+build/
+.gradle/
+
+# Additional files/dirs to unignore.
+!gradle/wrapper/*
