@@ -82,7 +82,7 @@
             cancelOrHideLoadScreen();
             document.querySelector(".content").insertAdjacentHTML("beforeEnd",
                     "<h2>Something went wrong ...</h2>" +
-                    "<p>This usually means the app has been rate-limited. Check the lower right corner.</p>"
+                    "<p>This usually means the server has been rate-limited. Check the lower right corner.</p>"
             );
         });
 

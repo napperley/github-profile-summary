@@ -1,11 +1,11 @@
-package app
+package server
 
 import java.io.*
 import java.util.*
 
 object Cache {
 
-    private const val path = "cache/userinfo";
+    private const val path = "cache/userinfo"
     private val userProfiles = readUserProfilesFromDisk()
 
     // Put userProfile in cache, then serialize cache and write it to disk

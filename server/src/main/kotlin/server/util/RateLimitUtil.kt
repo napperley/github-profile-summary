@@ -1,4 +1,4 @@
-package app.util
+package server.util
 
 import io.javalin.Javalin
 import java.util.*
@@ -34,7 +34,7 @@ object RateLimitUtil {
         override fun run() {
             ipReqCount.forEach { ip, count ->
                 if (count > 0) {
-                    ipReqCount[ip] = ipReqCount[ip]!! - 1;
+                    ipReqCount[ip] = ipReqCount[ip]!! - 1
                 }
             }
         }

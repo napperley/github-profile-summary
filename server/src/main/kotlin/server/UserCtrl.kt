@@ -1,6 +1,6 @@
-package app
+package server
 
-import app.util.Heroku
+import server.util.Heroku
 import org.eclipse.egit.github.core.Repository
 import org.eclipse.egit.github.core.RepositoryCommit
 import org.eclipse.egit.github.core.User
@@ -81,7 +81,8 @@ object UserCtrl {
 
     private fun getYearAndQuarter(it: RepositoryCommit): String {
         val date = it.commit.committer.date
-        return "${(1900 + date.year)}-Q${date.getMonth() / 3 + 1}"
+        @Suppress("DEPRECATION")
+        return "${(1900 + date.year)}-Q${date.month / 3 + 1}"
     }
 
 }

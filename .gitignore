@@ -1,20 +1,15 @@
-target/
-pom.xml.tag
-pom.xml.releaseBackup
-pom.xml.versionsBackup
-pom.xml.next
-release.properties
-dependency-reduced-pom.xml
-buildNumber.properties
-.mvn/timing.properties
-
-.idea
-*.iml
-cache
-
 # Additional files/dirs to ignore.
 build/
 .gradle/
+.idea/
+*.iml
+cache
+client/libs/
+web/
+*.js
+*.kjsm
+*.map
+*.MF
 
 # Additional files/dirs to unignore.
 !gradle/wrapper/*

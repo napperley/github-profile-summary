@@ -13,7 +13,7 @@
 
 If no api-token is set, you only get ~50 requests/hour  
 
-To run the app with an api-token, first generate a token at 
+To run the server with an api-token, first generate a token at 
 [https://github.com/settings/tokens](https://github.com/settings/tokens), 
 then launch the jar with the token:
 

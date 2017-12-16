@@ -1,4 +1,4 @@
-package app.util
+package server.util
 
 import io.javalin.Javalin
 
