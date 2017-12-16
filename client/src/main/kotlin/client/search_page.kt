@@ -1,17 +1,12 @@
 package client
 
 import org.webscene.client.HttpMethod
-import org.webscene.client.dom.DomQuery
 import org.webscene.client.html.InputType
 import org.webscene.client.html.ParentHtmlTag
 import kotlin.browser.document
 import org.webscene.client.html.HtmlCreator as html
 
-fun createSearchPage(): ParentHtmlTag {
-    DomQuery.allElementsByTagName("title")[0].textContent =
-        "Github Profile Summary - Visualize your GitHub profile"
-    return createMainLayout()
-}
+internal fun createSearchPage(): ParentHtmlTag = createMainLayout()
 
 private fun createMainLayout() = html.parentElement("div") {
     val query = document.location?.search
@@ -68,6 +63,6 @@ private fun createParagraph() = html.parentElement("p") {
 
 private fun createForm() = html.form(action = "", method = HttpMethod.GET) {
     children += html.input(type = InputType.TEXT, name = "q", autoFocus = true) {
-        attributes["placeholder"] = "ex. 'tipsy'"
+        attributes["placeholder"] = "Example: 'tipsy'"
     }
 }

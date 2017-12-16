@@ -45,29 +45,27 @@ object UserCtrl {
             val repoStarCountDescriptions = repoStarCount.map { it.key to repos.find { r -> r.name == it.key }?.description }.toMap()
 
             Cache.putUserProfile(UserProfile(
-                    user,
-                    quarterCommitCount,
-                    langRepoCount,
-                    langStarCount,
-                    langCommitCount,
-                    repoCommitCount,
-                    repoStarCount,
-                    repoCommitCountDescriptions,
-                    repoStarCountDescriptions
+                user,
+                quarterCommitCount,
+                langRepoCount,
+                langStarCount,
+                langCommitCount,
+                repoCommitCount,
+                repoStarCount,
+                repoCommitCountDescriptions,
+                repoStarCountDescriptions
             ))
         }
         return Cache.getUserProfile(username.toLowerCase())!!
     }
 
     fun hasStarredRepo(username: String): Boolean {
-        if (username.isEmpty()) {
-            return false
-        }
-        if (Cache.contains(username)) {
-            return true
-        }
+        if (username.isEmpty()) return false
+        if (Cache.contains(username)) return true
         return try {
-            watcherService.getWatchers(githubProfileSummary).map { it.login.toLowerCase() }.contains(username.toLowerCase())
+            watcherService.getWatchers(githubProfileSummary).map {
+                it.login.toLowerCase()
+            }.contains(username.toLowerCase())
         } catch (e: Exception) {
             false
         }
@@ -88,15 +86,15 @@ object UserCtrl {
 }
 
 data class UserProfile(
-        val user: User,
-        val quarterCommitCount: Map<String, Int>,
-        val langRepoCount: Map<String, Int>,
-        val langStarCount: Map<String, Int>,
-        val langCommitCount: Map<String, Int>,
-        val repoCommitCount: Map<String, Int>,
-        val repoStarCount: Map<String, Int>,
-        val repoCommitCountDescriptions: Map<String, String?>,
-        val repoStarCountDescriptions: Map<String, String?>
+    val user: User,
+    val quarterCommitCount: Map<String, Int>,
+    val langRepoCount: Map<String, Int>,
+    val langStarCount: Map<String, Int>,
+    val langCommitCount: Map<String, Int>,
+    val repoCommitCount: Map<String, Int>,
+    val repoStarCount: Map<String, Int>,
+    val repoCommitCountDescriptions: Map<String, String?>,
+    val repoStarCountDescriptions: Map<String, String?>
 ) : Serializable {
     val timeStamp = Date().time
 }
